@@ -1,0 +1,24 @@
+class:
+  class_name: 友情链接
+  link_list:
+    1:
+      name: 夢魘小棧
+      link: https://blog.ihoey.com
+      avatar: https://cdn.dode.top/avatar.png
+      descr: 心，若沒有棲息的地方，到哪裏都是流浪......
+    2:
+      name: 冰峯博客
+      link: https://www.ad-s.cn/
+      avatar: https://secure.gravatar.com/avatar/4074cd3e035c6e5796f6c263ef8ef0b8?s=56&d=wavatar&r=g
+      descr: 男人就應該保持冷靜，沸騰的水只會被蒸發掉。
+
+  
+
+class2:
+  class_name: 无法访问
+  link_list:
+    1:    
+      name: Aaron’s Blog
+      link: https://aoaoao.me/
+      avatar: https://v2ex.assets.uxengine.net/gravatar/3800f67051ba9440ffecf2c3e8734933?s=128&d=mm
+      descr: 00後/大一狗/火車控/SE@CQU/業餘無限墊入門ing

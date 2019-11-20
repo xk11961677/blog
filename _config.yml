@@ -4,23 +4,28 @@
 
 # Site
 title: sky
-subtitle: ''
-description: ''
-keywords:
+subtitle: 不以物喜,不以己悲
+description: 不以物喜,不以己悲
+keywords: sky,blog,IT博客,JAVA,程序员,个人博客,JAVA开发,JAVA博客
 author: sky
-language: zh-Hans
+language: zh-CN
 timezone: ''
+email: shen11961677@163.com
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://sky-blogs.netlify.com
+url: https://sky-blogs.netlify.com
 root: /
 # permalink: :year/:month/:day/:title/
-# permalink: :year:month:day/:id/
-permalink: :year:month:day/:url/
+permalink: posts/:abbrlink/
+
+# abbrlink config
+abbrlink:
+  alg: crc32  #support crc16(default) and crc32
+  rep: hex    #support dec(default) and hex
+  
+# permalink: :title/
 permalink_defaults:
-pretty_urls:
-  trailing_index: true # Set to false to remove trailing index.html from permalinks
 
 # Directory
 source_dir: source
@@ -31,15 +36,18 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+  - 404.html
+  - README.md
+  - image/pwa/manifest.json
+  - js2/jerry.js
 
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
 external_link:
-  enable: true # Open external links in new tab
-  field: site # Apply to the whole site
-  exclude: ''
+  enable: true
+  field: post
 filename_case: 0
 render_drafts: false
 post_asset_folder: false
@@ -49,8 +57,8 @@ highlight:
   enable: true
   line_number: true
   auto_detect: false
-  tab_replace: ''
-
+  tab_replace:
+  
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
@@ -59,15 +67,11 @@ index_generator:
   path: ''
   per_page: 10
   order_by: -date
-
+  
 # Category & Tag
 default_category: uncategorized
 category_map:
 tag_map:
-
-# Metadata elements
-## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
-meta_generator: true
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
@@ -75,26 +79,111 @@ meta_generator: true
 ## http://momentjs.com/docs/#/displaying/format/
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
-## Use post's date for updated date unless set in front-matter
-use_date_for_updated: false
 
 # Pagination
 ## Set per_page to 0 to disable pagination
 per_page: 10
 pagination_dir: page
 
-# Include / Exclude file(s)
-## include:/exclude: options only apply to the 'source/' folder
-include:
-exclude:
-ignore:
-
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: bmw
+theme: Butterfly
+# theme: melody
+
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: ''
+  - type: git
+    repo: 
+      github: git@github.com:xk11961677/blog.git
+      coding: git@github.com:xk11961677/blog.git
+    branch: master
+  # other deployer
+
+
+
+#hexo sitemap
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
+
+
+
+feed:
+  type: atom
+  path: atom.xml
+  limit: 100
+
+aplayer:
+  meting: true
+
+
+#melody主題local
+# search:
+#   path: search.xml
+#   field: post
+
+
+# offline config passed to sw-precache.
+# offline:
+#   maximumFileSizeToCacheInBytes: 10485760 # 缓存的最大文件大小，以字节为单位
+#   staticFileGlobs:
+#     - public/**/*.{js,html,css,png,jpg,gif,svg,webp,eot,ttf,woff,woff2}
+#   # 静态文件合集，如果你的站点使用了例如webp格式的文件，请将文件类型添加进去。
+#   stripPrefix: public
+#   verbose: true
+#   runtimeCaching:
+#     # CDNs - should be cacheFirst, since they should be used specific versions so should not change
+#     - urlPattern: /* # 如果你需要加载CDN资源，请配置该选项，如果没有，可以不配置。
+#       handler: cacheFirst
+#       options:
+#         origin: cdn.jsdelivr.net
+#     - urlPattern: /* # 如果你需要加载CDN资源，请配置该选项，如果没有，可以不配置。
+#       handler: cacheFirst
+#       options:
+#         origin: cdn1.lncld.net
+
+
+algolia:
+  applicationID: 'WM195CMNU8'
+  apiKey: '77c8bd3c5d5fe866a004573c28342a7f'
+  indexName: 'sky'
+
+nofollow:
+  enable: true
+  field: site
+  exclude:
+
+encrypt: # hexo-blog-encrypt
+  enable: false
+
+douban:
+  user: iamsky
+  builtin: false
+  movie:
+    title: '那些年,我看过的电影'
+    quote: '过去、现在、未来'
+  timeout: 10000 
+
+
+live2d:
+  enable: false
+  scriptFrom: local
+  pluginRootPath: live2dw/
+  pluginJsPath: lib/
+  pluginModelPath: assets/
+  tagMode: false
+  log: true
+  model:
+    use: live2d-widget-model-tororo
+  display:
+    position: right
+    width: 150
+    height: 300
+  mobile:
+    show: true
+  react:
+    opacity: 0.7
